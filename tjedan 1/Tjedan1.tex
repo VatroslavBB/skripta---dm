@@ -1,0 +1,142 @@
+ \documentclass{article}
+\usepackage[total={7in, 10in}]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage[unicode]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[croatian]{babel}
+\usepackage{multirow}
+
+
+\definecolor{carminered}{rgb}{1.0, 0.0, 0.22}
+\definecolor{capri}{rgb}{0.0, 0.75, 1.0}
+\definecolor{brightlavender}{rgb}{0.85, 0.7, 0.95}
+
+\title{\textbf{Prvi Tjedan}}
+\author{Q}
+\date{}
+\begin{document}
+
+
+\pagecolor{black}
+\color{white}
+\maketitle
+
+\begin{enumerate}
+
+\item Objasniti što podrazumijevamo pod pojmom skupa te na koje načine možemo skup zadati.
+
+Pod pojmom skup podrazumijevamo bilo koju množinu elemenata.
+
+\item Navesti definicije pojmova: podskup, jednakost skupova, pravi podskup, prazan skup, partitivni skup, disjunktni skupovi.
+
+Podskup ... skup $A$ je podskup skupa $B$ ako za bilo koji $x \in A$ također vrijedi $x \in B$ i to pišemo kao $A \subseteq B$.
+
+Jednakost ... kažemo da su skupovi $A$ i $B$ jednaki ako vrijedi $A\subseteq B$ i $B\subseteq A$ te pišemo $A=B$.
+
+Pravi podskup ... kažemo da je skup $A$ pravi podskup skupa $B$ ako vrijedi $A\subseteq B$ i $A\neq B$ te pišemo $A\subset B$.
+
+Prazan skup ... onaj koji ne sadrži elemente, pišemo $\emptyset$. Za svaki skup $A$ vrijedi $\emptyset\subseteq A$.
+
+Partitivni skup ... za bilo koji skup $A$ možemo definirati skup koji kao svoje elemente sadrži podskupove od $A$, skup svih podskupova od $A$ zovemo partitivni skup i pišemo $\mathcal{P}(A)$.
+
+Disjunktni skupovi ... za dva skupa $A$ i $B$ vrijedi da su disjunktni ako je njihov presjek prazan skup.
+
+\item Definirati skupovne operacije: unija, presjek, komplement, razlika, simetrična razlika, te navesti svojstva svih tih operacija.
+
+Unija ... za dva skupa $A$ i $B$ sadržanih u univerzalnom skupu definiramo uniju skupova $A$ i $B$ kao skup svih elemenata $x$ za koje vrijedi $x\in A$ ili $x\in B$, takav skup označavamo sa $A\cup B$.
+
+Presjek ... za dva skupa $A$ i $B$ sadržanih u univerzalnom skupu definiramo presjek skupova $A$ i $B$ kao skup svih elemenata $x$ za koje vrijedi $x\in A$ i $x\in B$, takav skup označavamo sa $A\cap B$.
+
+Komplement ... za skup $A$ koji je sadržan u univerzalnom skupu definiramo komplement skupa $A$ kao skup svih elemenata $x$ za koje vrijedi $x\notin A$, a označavamo ${A}^\complement$ ili $\overline{A}$.
+
+Razlika ... za dva skupa $A$ i $B$ sadržanih u univerzalnom skupu definiramo razliku skupova $A$ i $B$ kao skup svih elemenata $x$ za koje vrijedi $x\in A$ i $x\notin B$, te pišemo $A\setminus B$.
+
+Simetrična razlika ... za dva skupa $A$ i $B$ sadržanih u univerzalnom skupu definiramo simetričnu razliku skupova $A$ i $B$ kao skup svih elemenata $x$ za koje vrijedi $x\in A$, $x\in B$ i $x\notin A\cap B$, te pišemo $A\triangle B$.
+
+Neka su $A$, $B$ i $C\in 2^{X}$, tada vrijede sljedeća svojstva operacija nad skupovima:
+\begin{itemize}
+\item idempotentnost
+$$A\cup A = A , \quad A\cap A = A$$
+\item asocijativnost
+$$A\cup(B\cup C) = (A\cup B)\cup C$$
+$$A\cap(B\cap C) = (A\cap B)\cap C$$
+\item komutativnost
+$$A\cup B = B\cup A, \quad A\cap B = B\cap A$$
+\item distributivnost
+$$A\cap(B\cup C) = (A\cap B)\cup(A\cap C)$$
+$$A\cup(B\cap C) = (A\cup B)\cap(A\cup C)$$
+\item De Morgan
+$$\overline{A\cup B} = \overline{A}\cap\overline{B}$$
+$$\overline{A\cap B} = \overline{A}\cup\overline{B}$$
+\item ostala pravila
+$$A\cup\emptyset = A, \quad A\cap X = A$$
+$$A\cup\overline{A} = X, \quad A\cap\overline{A} = \emptyset$$
+$$\overline{\overline{A}} = A$$
+\end{itemize}
+
+\item Dokazati De Morganove formule za dva proizvoljna skupa.
+
+Prema De Morganovim formulama vrijedi da za dva skupa $A$, $B \in 2^{X}$ vrijedi:
+$$\overline{A\cup B} = \overline{A}\cap\overline{B}$$
+$$\overline{A\cap B} = \overline{A}\cup\overline{B}$$
+Dokažimo prvo prvu formulu.
+
+Neka je $x\in\overline{A\cup B}$, odnosno $x\notin A\cup B$. Tada također vrijedi $x\notin A$ i $x\notin B$, drugim riječima $x\in \overline{A}$ i $x\in\overline{B}$ ali to samo znači $x\in\overline{A}\cap\overline{B}$ pa time vrijedi $\overline{A\cup B}\subseteq\overline{A}\cap\overline{B}$.
+
+Sada neka je $x\in\overline{A}\cap\overline{B}$, odnosno $x\in\overline{A}$ i $x\in\overline{B}$. Uočavamo da onda vrijedi i $x\notin A$ i $x\notin B$, odnosno $x\notin A\cup B$, drugim riječima $x\in\overline{A\cup B}$ pa time vrijedi $\overline{A}\cap\overline{B}\subseteq\overline{A\cup B}$.
+
+Pokazali smo da vrijedi
+$$\overline{A\cup B}\subseteq\overline{A}\cap\overline{B}\quad i \quad \overline{A}\cap\overline{B}\subseteq\overline{A\cup B}$$
+Te zaključujemo
+$$\overline{A\cup B} = \overline{A}\cap\overline{B}$$
+Dokažimo sada drugu formulu.
+
+Neka je $x\in\overline{A\cap B} \Longrightarrow x\notin A\cap B \Longrightarrow x \notin A$ ili $x\notin B\Longrightarrow x\in\overline{A}$ ili $x\in\overline{B}\Longrightarrow x\in\overline{A}\cup\overline{B}$ pa vrijedi $\overline{A\cap B}\subseteq\overline{A}\cup\overline{B}$.
+
+Sada neka je $x\in\overline{A}\cup\overline{B}\Longrightarrow x\in\overline{A}$ ili $x\in\overline{B}\Longrightarrow x\notin A$ ili $x\notin B\Longrightarrow x\notin A\cap B\Longrightarrow x\in\overline{A\cap B}$ pa vrijedi $\overline{A}\cup\overline{B}\subseteq\overline{A\cap B}$.
+
+Pokazali smo da vrijedi
+$$\overline{A\cap B}\subseteq\overline{A}\cup\overline{B} \quad i \quad \overline{A}\cup\overline{B}\subseteq\overline{A\cap B}$$
+Te zaključujemo
+$$\overline{A\cap B} = \overline{A}\cup\overline{B}$$
+
+\item Definirati pojam Kartezijevog produkta  $n$ - proizvoljnih skupova.
+
+Ako su $A_1, A_2, \ldots, A_n$ neprazni skupovi, onda definiramo Kartezijev produkt
+$$A_1 \times A_2 \times\ldots\times A_n$$
+kao skup svih uređenih parova $(a_1, a_2, \ldots, a_n)$ takvih da je $a_k\in A_k$ za sve $k = 1, 2, \ldots, n$
+
+\item Definirati pojmove konačan skup, beskonačan skup, ekvipotentni skupovi, prebrojiv skup, neprebrojiv skup.
+
+Konačan skup ... za neprazan skup $A$ kažemo da je konačan ako postoji $n\in\mathbb{N}$ i bijekcija takva da $$f: \{1, 2, \ldots, n\}\to A$$
+
+Beskonačan skup ... za skup $A$ kažemo da je beskonačan ako nije konačan.
+
+Ekvipotentni skupovi ... Skup $A$ je ekvipotentan sa skupom $B$ ako postoji bijekcija takva da $f: A\to B$.
+
+Prebrojivi skup ... za beskonačan skup $A$ kažemo da je prebrojiv ako se skup njegovih elemenata može poredati u beskonačan niz $ A = \{a_1, a_2, \ldots\}$.
+
+Neprebrojiv skup ... za beskonačan skup $A$ kažemo da je neprebrojiv ako se ne može poredati u niz.
+
+\item Dokazati da je funkcija $f: A \to B$ injektivna akko je surjektivna, pri čemu su $A$ i $B$ konačni skupovi s jednakim brojem elemenata.
+
+Dokažimo prvo u jednom smjeru.
+
+Neka je $f$ injektivna funkcija, tada skupovi $A$ i $f(A)$ imaju isti broj elemenata. Također znamo da vrijedi $|A| = |B|$ pa znamo $|f(A)| = |B|$.
+
+Za svaku funkciju vrijedi da je slika funkcije podskup kodomene odnosno $f(A)\subseteq B$, ali uz dodatan uvjet $|f(A)| = |B|$ sada imamo $f(A) = B$, odnosno funkcija je surjekcija.
+
+Sada dokažimo u drugom smjeru.
+
+Neka je $f$ surjektivna funkcija, tada znamo da je $f(A) = B$, odnosno $|f(A)| = |B|$. Uz uvjet $|A| = |B|$ sada imamo $|f(A)|=|A|$, drugim riječima domena i slika funkcije imaju jednak broj elemenata pa je funkcija injekcija.
+
+\item Definirati pojam kardinalnog broja skupa te prokomentirati ekvipotentnost kod konačnih i beskonačnih skupova.
+
+Za konačan skup $A$ s $n$ elemenata definiramo kardinalni broj skupa kao $|A| = n$.
+
+\end{enumerate}
+
+\end{document}

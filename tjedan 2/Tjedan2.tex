@@ -1,0 +1,118 @@
+ \documentclass{article}
+\usepackage[total={7in, 10in}]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage[unicode]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[croatian]{babel}
+\usepackage{multirow}
+
+
+\definecolor{carminered}{rgb}{1.0, 0.0, 0.22}
+\definecolor{capri}{rgb}{0.0, 0.75, 1.0}
+\definecolor{brightlavender}{rgb}{0.85, 0.7, 0.95}
+
+\title{\textbf{Drugi tjedan}}
+\author{Q}
+\date{}
+\begin{document}
+
+
+\pagecolor{black}
+\color{white}
+\maketitle
+
+\begin{enumerate}
+
+\item Definirati pojmove: sud, semantička vrijednost suda.
+
+Sud ... bilo koja rečenica koja je ili istinita ili lažna. Svakom sudu $A$ pridružujemo vrijednosti $\top$ ili $\bot$ (redom istina i lažna).
+
+Semantička vrijednost ... vrijednost istinitosti suda, semantičku vrijednost suda $A$ označavamo sa $\tau (A)$ čija vrijednost može biti $\tau (A) = \top$ ili $\tau (A) = \bot$.
+
+\item Definirati operacije sa sudovima: negacija, konjunkcija, disjunkcija, ekskluzivna disjunkcija, implikacija, ekvivalencija, Shefferova operacija, Lukasiewiczeva operacija.
+
+Negacija ... negacija suda $A$ je sud koji označavamo sa $\neg A$ (čitamo: ne A), a pripadajuća tablica istinitosti je
+\begin{displaymath}
+\begin{array}{|c|c|}
+A & \neg A\\
+\hline
+\top & \bot\\
+\bot & \top\\
+\end{array}
+\end{displaymath}
+
+Konjunkcija ... konjunkcija sudova $A$ i $B$ je sud koji označavamo sa $A\land B$ (čitamo: A i B).
+
+Disjunkcija ... disjunkcija sudova $A$ i $B$ je sud koji označavamo sa $A\lor B$ (čitamo: A ili B).
+
+Ekskluzivna disjunkcija ... ekskluzivna dijsunkcija sudova $A$ i $B$ je sud koji označavamo sa $A\veebar B$ (čitamo: ili A ili B).
+
+Implikacija ... implikacija sudova $A$ i $B$ je sud koji označavamo sa $A\Rightarrow B$ (čitamo: iz A slijedi B).
+
+Ekvivalencija ... ekvivalencija sudova $A$ i $B$ je sud koji označavamo sa $A\Leftrightarrow B$ (čitamo: A je ekvivalentan sa B).
+
+Shefferova operacija ... shefferova operacija između sudova $A$ i $B$ je sud koji označavamo sa $A\uparrow B$ (čitamo: A šefer B), te ima značenje nije istodobno $A$ i $B$.
+
+Lukasiewiczeva operacija ... lukasiewiczeva operacija između sudova $A$ i $B$ je sud koji označavamo sa $A\downarrow B$ (čitamo: A lukasijevič B), te ima značenje niti je $A$ niti je $B$.
+
+Pripadajuća tablica istinitosti za operacije konjunkcije, disjunkcije, ekskluzivne disjunkcije, implikacije, ekvivalencije, Shefferove operacije i Lukasiewiczeve operacije
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c|c|c|}
+A & B & A\land B & A\lor B & A\veebar B & A\Rightarrow B & A\Leftrightarrow B & A\uparrow B & A\downarrow B\\
+\hline
+\bot & \bot & \bot & \bot & \bot & \top & \top & \top & \top\\
+\bot & \top & \bot & \top & \top & \top & \bot & \top & \bot\\
+\top & \bot & \bot & \top & \top & \bot & \bot & \top & \bot\\
+\top & \top & \top & \top & \bot & \top & \top & \bot & \bot\\
+\end{array}
+\end{displaymath}
+
+
+\item Definirati pojam logičke ekvivalentnosti dviju logičkih formula te navesti poredak logičkih operacija po snazi vezivanja.
+
+Logička ekvivalentnosti ... Kažemo da su dvije formule $P$ i $Q$ algebre sudova logički ekvivalentne ako imaju isti broj varijabla i podjednake tablice istinitosti, te pišemo $P\equiv Q$.
+
+Poredak logičkih operacija po opadajućoj snazi vezivanja je
+$$\neg,\quad\land,\quad\lor,\quad\Rightarrow,\quad\Leftrightarrow$$
+
+\item Definirati pojmove generatora algebre sudova i baze algebre sudova.
+
+Generator algebre sudova ... sistem izvodnica (generatora) algebre sudova je skup Booleovih operacija algebre sudova pomoću kojih se može napisati bilo koja formula algebre sudova.
+
+Baza algebre sudova ... Minimalni sistem izvodnica algebre sudova zovemo bazom algebre sudova.
+
+\item Iskazati i dokazati teorem koji daje svojstva operacija sa sudovima.
+
+Vrijede sljedeća pravila algebre sudova
+\begin{itemize}
+\item idempotentnost operacija disjunkcije i konjunkcije
+$$A\lor A\equiv A,\quad A\land A\equiv A$$
+\item asocijativnost
+$$(A\lor B)\lor C\equiv A\lor (B\lor C)$$
+$$(A\land B)\land C\equiv A\land (B\land C)$$
+\item komutativnost
+$$A\lor B\equiv B\lor A,\quad A\land B\equiv B\land A$$
+\item distributivnost
+$$A\land (B\lor C)\equiv (A\land B)\lor (A\land C)$$
+$$A\lor (B\land C)\equiv (A\lor B)\land (A\lor C)$$
+\item DeMorganove formule
+$$\neg (A\lor B)\equiv \neg A\land\neg B,\quad\neg (A\land B)\equiv \neg A\lor\neg B$$
+\item $$A\lor\top\equiv\top,\quad A\land\bot\equiv\bot$$
+\item $$A\lor\bot\equiv A,\quad A\land\top\equiv A$$
+\item komplementiranost
+$$A\lor\neg A\equiv\top,\quad A\land\neg A\equiv\bot$$
+\item pravilo dvostruke negacije
+$$\neg\neg A\equiv A$$
+\end{itemize}
+
+FALI DOKAZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+
+\item Iskazati i dokazati pravilo obrata po kontrapoziciji.
+
+\end{enumerate}
+
+\end{document}
+
