@@ -1,0 +1,259 @@
+ \documentclass{article}
+\usepackage[total={7in, 10in}]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage[unicode]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[croatian]{babel}
+\usepackage{multirow}
+
+
+\definecolor{carminered}{rgb}{1.0, 0.0, 0.22}
+\definecolor{capri}{rgb}{0.0, 0.75, 1.0}
+\definecolor{brightlavender}{rgb}{0.85, 0.7, 0.95}
+
+\title{\textbf{Diskretna matematika 120 - teorija}}
+\author{Q}
+\date{\today}
+\begin{document}
+
+
+\pagecolor{black}
+\color{white}
+\maketitle
+\color{brightlavender}
+\section{Skupovi i funkcije}
+\color{white}
+\pagenumbering{roman}
+\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+
+\begin{enumerate}
+
+\item Objasniti što podrazumijevamo pod pojmom skupa te na koje načine možemo skup zadati.
+
+Pod pojmom skup podrazumijevamo bilo koju množinu elemenata.
+
+\item Navesti definicije pojmova: podskup, jednakost skupova, pravi podskup, prazan skup, partitivni skup, disjunktni skupovi.
+
+Podskup ... skup $A$ je podskup skupa $B$ ako za bilo koji $x \in A$ također vrijedi $x \in B$ i to pišemo kao $A \subseteq B$.
+
+Jednakost ... kažemo da su skupovi $A$ i $B$ jednaki ako vrijedi $A\subseteq B$ i $B\subseteq A$ te pišemo $A=B$.
+
+Pravi podskup ... kažemo da je skup $A$ pravi podskup skupa $B$ ako vrijedi $A\subseteq B$ i $A\neq B$ te pišemo $A\subset B$.
+
+Prazan skup ... onaj koji ne sadrži elemente, pišemo $\emptyset$. Za svaki skup $A$ vrijedi $\emptyset\subseteq A$.
+
+Partitivni skup ... za bilo koji skup $A$ možemo definirati skup koji kao svoje elemente sadrži podskupove od $A$, skup svih podskupova od $A$ zovemo partitivni skup i pišemo $\mathcal{P}(A)$.
+
+Disjunktni skupovi ... za dva skupa $A$ i $B$ vrijedi da su disjunktni ako je njihov presjek prazan skup.
+
+\item Definirati skupovne operacije: unija, presjek, komplement, razlika, simetrična razlika, te navesti svojstva svih tih operacija.
+
+Unija ... za dva skupa $A$ i $B$ sadržanih u univerzalnom skupu definiramo uniju skupova $A$ i $B$ kao skup svih elemenata $x$ za koje vrijedi $x\in A$ ili $x\in B$, takav skup označavamo sa $A\cup B$.
+
+Presjek ... za dva skupa $A$ i $B$ sadržanih u univerzalnom skupu definiramo presjek skupova $A$ i $B$ kao skup svih elemenata $x$ za koje vrijedi $x\in A$ i $x\in B$, takav skup označavamo sa $A\cap B$.
+
+Komplement ... za skup $A$ koji je sadržan u univerzalnom skupu definiramo komplement skupa $A$ kao skup svih elemenata $x$ za koje vrijedi $x\notin A$, a označavamo ${A}^\complement$ ili $\overline{A}$.
+
+Razlika ... za dva skupa $A$ i $B$ sadržanih u univerzalnom skupu definiramo razliku skupova $A$ i $B$ kao skup svih elemenata $x$ za koje vrijedi $x\in A$ i $x\notin B$, te pišemo $A\setminus B$.
+
+Simetrična razlika ... za dva skupa $A$ i $B$ sadržanih u univerzalnom skupu definiramo simetričnu razliku skupova $A$ i $B$ kao skup svih elemenata $x$ za koje vrijedi $x\in A$, $x\in B$ i $x\notin A\cap B$, te pišemo $A\triangle B$.
+
+Neka su $A$, $B$ i $C\in 2^{X}$, tada vrijede sljedeća svojstva operacija nad skupovima:
+\begin{itemize}
+\item idempotentnost
+$$A\cup A = A , \quad A\cap A = A$$
+\item asocijativnost
+$$A\cup(B\cup C) = (A\cup B)\cup C$$
+$$A\cap(B\cap C) = (A\cap B)\cap C$$
+\item komutativnost
+$$A\cup B = B\cup A, \quad A\cap B = B\cap A$$
+\item distributivnost
+$$A\cap(B\cup C) = (A\cap B)\cup(A\cap C)$$
+$$A\cup(B\cap C) = (A\cup B)\cap(A\cup C)$$
+\item De Morgan
+$$\overline{A\cup B} = \overline{A}\cap\overline{B}$$
+$$\overline{A\cap B} = \overline{A}\cup\overline{B}$$
+\item ostala pravila
+$$A\cup\emptyset = A, \quad A\cap X = A$$
+$$A\cup\overline{A} = X, \quad A\cap\overline{A} = \emptyset$$
+$$\overline{\overline{A}} = A$$
+\end{itemize}
+
+\item Dokazati De Morganove formule za dva proizvoljna skupa.
+
+Prema De Morganovim formulama vrijedi da za dva skupa $A$, $B \in 2^{X}$ vrijedi:
+$$\overline{A\cup B} = \overline{A}\cap\overline{B}$$
+$$\overline{A\cap B} = \overline{A}\cup\overline{B}$$
+Dokažimo prvo prvu formulu.
+
+Neka je $x\in\overline{A\cup B}$, odnosno $x\notin A\cup B$. Tada također vrijedi $x\notin A$ i $x\notin B$, drugim riječima $x\in \overline{A}$ i $x\in\overline{B}$ ali to samo znači $x\in\overline{A}\cap\overline{B}$ pa time vrijedi $\overline{A\cup B}\subseteq\overline{A}\cap\overline{B}$.
+
+Sada neka je $x\in\overline{A}\cap\overline{B}$, odnosno $x\in\overline{A}$ i $x\in\overline{B}$. Uočavamo da onda vrijedi i $x\notin A$ i $x\notin B$, odnosno $x\notin A\cup B$, drugim riječima $x\in\overline{A\cup B}$ pa time vrijedi $\overline{A}\cap\overline{B}\subseteq\overline{A\cup B}$.
+
+Pokazali smo da vrijedi
+$$\overline{A\cup B}\subseteq\overline{A}\cap\overline{B}\quad i \quad \overline{A}\cap\overline{B}\subseteq\overline{A\cup B}$$
+Te zaključujemo
+$$\overline{A\cup B} = \overline{A}\cap\overline{B}$$
+Dokažimo sada drugu formulu.
+
+Neka je $x\in\overline{A\cap B} \Longrightarrow x\notin A\cap B \Longrightarrow x \notin A$ ili $x\notin B\Longrightarrow x\in\overline{A}$ ili $x\in\overline{B}\Longrightarrow x\in\overline{A}\cup\overline{B}$ pa vrijedi $\overline{A\cap B}\subseteq\overline{A}\cup\overline{B}$.
+
+Sada neka je $x\in\overline{A}\cup\overline{B}\Longrightarrow x\in\overline{A}$ ili $x\in\overline{B}\Longrightarrow x\notin A$ ili $x\notin B\Longrightarrow x\notin A\cap B\Longrightarrow x\in\overline{A\cap B}$ pa vrijedi $\overline{A}\cup\overline{B}\subseteq\overline{A\cap B}$.
+
+Pokazali smo da vrijedi
+$$\overline{A\cap B}\subseteq\overline{A}\cup\overline{B} \quad i \quad \overline{A}\cup\overline{B}\subseteq\overline{A\cap B}$$
+Te zaključujemo
+$$\overline{A\cap B} = \overline{A}\cup\overline{B}$$
+
+\item Definirati pojam Kartezijevog produkta  $n$ - proizvoljnih skupova.
+
+Ako su $A_1, A_2, \ldots, A_n$ neprazni skupovi, onda definiramo Kartezijev produkt
+$$A_1 \times A_2 \times\ldots\times A_n$$
+kao skup svih uređenih parova $(a_1, a_2, \ldots, a_n)$ takvih da je $a_k\in A_k$ za sve $k = 1, 2, \ldots, n$
+
+\item Definirati pojmove konačan skup, beskonačan skup, ekvipotentni skupovi, prebrojiv skup, neprebrojiv skup.
+
+Konačan skup ... za neprazan skup $A$ kažemo da je konačan ako postoji $n\in\mathbb{N}$ i bijekcija takva da $$f: \{1, 2, \ldots, n\}\to A$$
+
+Beskonačan skup ... za skup $A$ kažemo da je beskonačan ako nije konačan.
+
+Ekvipotentni skupovi ... Skup $A$ je ekvipotentan sa skupom $B$ ako postoji bijekcija takva da $f: A\to B$.
+
+Prebrojivi skup ... za beskonačan skup $A$ kažemo da je prebrojiv ako se skup njegovih elemenata može poredati u beskonačan niz $ A = \{a_1, a_2, \ldots\}$.
+
+Neprebrojiv skup ... za beskonačan skup $A$ kažemo da je neprebrojiv ako se ne može poredati u niz.
+
+\item Dokazati da je funkcija $f: A \to B$ injektivna akko je surjektivna, pri čemu su $A$ i $B$ konačni skupovi s jednakim brojem elemenata.
+
+Dokažimo prvo u jednom smjeru.
+
+Neka je $f$ injektivna funkcija, tada skupovi $A$ i $f(A)$ imaju isti broj elemenata. Također znamo da vrijedi $|A| = |B|$ pa znamo $|f(A)| = |B|$.
+
+Za svaku funkciju vrijedi da je slika funkcije podskup kodomene odnosno $f(A)\subseteq B$, ali uz dodatan uvjet $|f(A)| = |B|$ sada imamo $f(A) = B$, odnosno funkcija je surjekcija.
+
+Sada dokažimo u drugom smjeru.
+
+Neka je $f$ surjektivna funkcija, tada znamo da je $f(A) = B$, odnosno $|f(A)| = |B|$. Uz uvjet $|A| = |B|$ sada imamo $|f(A)|=|A|$, drugim riječima domena i slika funkcije imaju jednak broj elemenata pa je funkcija injekcija.
+
+\item Definirati pojam kardinalnog broja skupa te prokomentirati ekvipotentnost kod konačnih i beskonačnih skupova.
+
+Za konačan skup $A$ s $n$ elemenata definiramo kardinalni broj skupa kao $|A| = n$.
+
+\end{enumerate}
+
+\color{brightlavender}
+\section{Matematička logika}
+\color{white}
+
+\begin{enumerate}
+
+\item Definirati pojmove: sud, semantička vrijednost suda.
+
+Sud ... bilo koja rečenica koja je ili istinita ili lažna. Svakom sudu $A$ pridružujemo vrijednosti $\top$ ili $\bot$ (redom istina i lažna).
+
+Semantička vrijednost ... vrijednost istinitosti suda, semantičku vrijednost suda $A$ označavamo sa $\tau (A)$ čija vrijednost može biti $\tau (A) = \top$ ili $\tau (A) = \bot$.
+
+\item Definirati operacije sa sudovima: negacija, konjunkcija, disjunkcija, ekskluzivna disjunkcija, implikacija, ekvivalencija, Shefferova operacija, Lukasiewiczeva operacija.
+
+Negacija ... negacija suda $A$ je sud koji označavamo sa $\neg A$ (čitamo: ne A), a pripadajuća tablica istinitosti je
+\begin{displaymath}
+\begin{array}{|c|c|}
+A & \neg A\\
+\hline
+\top & \bot\\
+\bot & \top\\
+\end{array}
+\end{displaymath}
+
+Konjunkcija ... konjunkcija sudova $A$ i $B$ je sud koji označavamo sa $A\land B$ (čitamo: A i B).
+
+Disjunkcija ... disjunkcija sudova $A$ i $B$ je sud koji označavamo sa $A\lor B$ (čitamo: A ili B).
+
+Ekskluzivna disjunkcija ... ekskluzivna dijsunkcija sudova $A$ i $B$ je sud koji označavamo sa $A\veebar B$ (čitamo: ili A ili B).
+
+Implikacija ... implikacija sudova $A$ i $B$ je sud koji označavamo sa $A\Rightarrow B$ (čitamo: iz A slijedi B).
+
+Ekvivalencija ... ekvivalencija sudova $A$ i $B$ je sud koji označavamo sa $A\Leftrightarrow B$ (čitamo: A je ekvivalentan sa B).
+
+Shefferova operacija ... shefferova operacija između sudova $A$ i $B$ je sud koji označavamo sa $A\uparrow B$ (čitamo: A šefer B), te ima značenje nije istodobno $A$ i $B$.
+
+Lukasiewiczeva operacija ... lukasiewiczeva operacija između sudova $A$ i $B$ je sud koji označavamo sa $A\downarrow B$ (čitamo: A lukasijevič B), te ima značenje niti je $A$ niti je $B$.
+
+Pripadajuća tablica istinitosti za operacije konjunkcije, disjunkcije, ekskluzivne disjunkcije, implikacije, ekvivalencije, Shefferove operacije i Lukasiewiczeve operacije
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c|c|c|}
+A & B & A\land B & A\lor B & A\veebar B & A\Rightarrow B & A\Leftrightarrow B & A\uparrow B & A\downarrow B\\
+\hline
+\bot & \bot & \bot & \bot & \bot & \top & \top & \top & \top\\
+\bot & \top & \bot & \top & \top & \top & \bot & \top & \bot\\
+\top & \bot & \bot & \top & \top & \bot & \bot & \top & \bot\\
+\top & \top & \top & \top & \bot & \top & \top & \bot & \bot\\
+\end{array}
+\end{displaymath}
+
+
+\item Definirati pojam logičke ekvivalentnosti dviju logičkih formula te navesti poredak logičkih operacija po snazi vezivanja.
+
+Logička ekvivalentnosti ... Kažemo da su dvije formule $P$ i $Q$ algebre sudova logički ekvivalentne ako imaju isti broj varijabla i podjednake tablice istinitosti, te pišemo $P\equiv Q$.
+
+Poredak logičkih operacija po opadajućoj snazi vezivanja je
+$$\neg,\quad\land,\quad\lor,\quad\Rightarrow,\quad\Leftrightarrow$$
+
+\item Definirati pojmove generatora algebre sudova i baze algebre sudova.
+
+Generator algebre sudova ... sistem izvodnica (generatora) algebre sudova je skup Booleovih operacija algebre sudova pomoću kojih se može napisati bilo koja formula algebre sudova.
+
+Baza algebre sudova ... Minimalni sistem izvodnica algebre sudova zovemo bazom algebre sudova.
+
+\item Iskazati i dokazati teorem koji daje svojstva operacija sa sudovima.
+
+Vrijede sljedeća pravila algebre sudova
+\begin{itemize}
+\item idempotentnost operacija disjunkcije i konjunkcije
+$$A\lor A\equiv A,\quad A\land A\equiv A$$
+\item asocijativnost
+$$(A\lor B)\lor C\equiv A\lor (B\lor C)$$
+$$(A\land B)\land C\equiv A\land (B\land C)$$
+\item komutativnost
+$$A\lor B\equiv B\lor A,\quad A\land B\equiv B\land A$$
+\item distributivnost
+$$A\land (B\lor C)\equiv (A\land B)\lor (A\land C)$$
+$$A\lor (B\land C)\equiv (A\lor B)\land (A\lor C)$$
+\item DeMorganove formule
+$$\neg (A\lor B)\equiv \neg A\land\neg B,\quad\neg (A\land B)\equiv \neg A\lor\neg B$$
+\item $$A\lor\top\equiv\top,\quad A\land\bot\equiv\bot$$
+\item $$A\lor\bot\equiv A,\quad A\land\top\equiv A$$
+\item komplementiranost
+$$A\lor\neg A\equiv\top,\quad A\land\neg A\equiv\bot$$
+\item pravilo dvostruke negacije
+$$\neg\neg A\equiv A$$
+\end{itemize}
+
+FALI DOKAZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+
+\item Iskazati i dokazati pravilo obrata po kontrapoziciji.
+
+\end{enumerate}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
