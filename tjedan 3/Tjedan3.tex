@@ -1,0 +1,97 @@
+ \documentclass{article}
+\usepackage[total={7in, 10in}]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage[unicode]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[croatian]{babel}
+\usepackage{multirow}
+
+
+\definecolor{carminered}{rgb}{1.0, 0.0, 0.22}
+\definecolor{capri}{rgb}{0.0, 0.75, 1.0}
+\definecolor{brightlavender}{rgb}{0.85, 0.7, 0.95}
+
+\title{\textbf{Treći tjedan}}
+\author{Q}
+\date{}
+\begin{document}
+\pagecolor{black}
+\color{white}
+\maketitle
+
+\begin{enumerate}
+
+\item Definirati pojmove: tauotologija, kontradikcija.
+
+Tautologija ... za neku formulu $P$ kažemo da je tautologija ako je uvijek istinita, u tom slučaju pišemo $\vDash P$.
+
+Kontradikcija ... za neku formulu $Q$ kažemo da je kontradikcija ako nikad nije istinita, u tom slučaju pišemo $Q\equiv\bot$.
+
+\item Zapisati formulama pa dokazati (algebarski i tablicom) sljedeća pravila zaključivanja: zakon isključenja trećega, pravilo silogizma, zakon neproturječnosti, zakon dvostruke negacije, pravilo kontrapozicije, zakoni apsorpcije.
+
+U matematičkoj logici vrijede sljedeća pravila zaključivanja:
+\begin{itemize}
+\item zakon isključenja trećeg
+$$\vDash A\lor\neg A$$
+\item tranzitivnost implikacije, odnosno pravilo silogizma
+$$\vDash ( A\Rightarrow B)\land(B\Rightarrow C)\Rightarrow(A\Rightarrow C)$$
+\item zakon proturječnosti
+$$\vDash \neg( A\land\neg A)$$
+\item zakon dvostruke negacije
+$$\vDash \neg\neg A\Leftrightarrow A$$
+\item pravilo kontrapozicije
+$$\vDash(A\Rightarrow B)\Leftrightarrow(\neg B\Rightarrow A)$$
+\item zakoni apsorpcije
+$$\vDash A\lor(A\land B)\Leftrightarrow A$$
+$$\vDash A\land(A\lor B)\Leftrightarrow A$$
+\end{itemize}
+
+\color{carminered}
+triba jos dokazat
+\color{white}
+
+\item Definirati pojam algebre sudova.
+
+Algebra sudova je skup $S$ svih sudova zajedno s tri operacije na $S$: dvije binarne $\lor$, $\land$ i jednom unarnom $\neg$.
+
+\item Definirati pojmove logička posljedica sudova, premise, zaključak.
+
+Kažemo da je $A$ logička posljedica sudova $P_1, P_2, \ldots, P_n$ ako iz prepostavke da su sudovi $P_1, P_2, \ldots, P_n$ istiniti slijedi da je i sud $A$ istinit, pišemo
+$$P_1, P_2, \ldots, P_n\vDash A$$
+
+Sudovi $P_1, P_2, \ldots, P_n$ su premise, a sud $A$ je zaključak.
+
+\item Iskazati i dokazati teorem koji karakterizira pojam logičke posljedice sudova pomoću implikacije.
+
+Ako vrijedi $P_1, P_2, \ldots, P_n\vDash A$, onda je $\vDash P_1\land P_2\land\ldots\land P_n\Rightarrow A$ i obratno.
+
+Dokažimo tvrdnju prvo u jednom smjeru.
+
+Neka je $P_1, \ldots, P_n\vdash A$, tada treba dokazati $$\vDash P_1\land P_2\land\ldots\land P_n\Rightarrow A$$ 
+Iz pretpostavke vidimo da istinitost sudova $P_1, \ldots, P_n$ povlači istinitost suda $A$, pa uzmimo da vrijedi 
+$$P_1\equiv P_2\equiv\ldots\equiv P_n\equiv\top$$ 
+Ako pretpostavimo da je tvrdnja lažna onda mora vrijediti
+$$\vDash P_1\land P_2\land\ldots\land P_n\quad A\equiv\bot$$
+odnosno,
+$$P_1\equiv P_2\equiv\ldots\equiv P_n\equiv\top\quad A\equiv\bot$$
+što je u kontradikciji s pretpostavkom, stoga tvrdnja mora biti istinita.
+
+Dokažimo sada tvrdnju u drugom smjeru.
+
+\item Iskazati i dokazati pravila modus ponens i modus tollens.
+
+\item Definirati pojam Booleove algebre (raspisati sva svojstva).
+
+\item Dokazati da su u Booleovoj algebri nula i jedinica jedinstvene, te da vrijede pravila apsorpcije.
+
+\item Definirati pojam izomorfizma Booleovih algebri.
+
+\item Dokazati da izomorfizam Booleovih algebra čuva zbrajanje, nulu i jedinicu.
+
+\end{enumerate}
+
+\end{document}
+
