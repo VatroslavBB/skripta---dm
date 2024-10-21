@@ -149,7 +149,6 @@ Za konačan skup $A$ s $n$ elemenata definiramo kardinalni broj skupa kao $|A| =
 \color{white}
 
 \begin{enumerate}
-
 \item Definirati pojmove: sud, semantička vrijednost suda.
 
 Sud ... bilo koja rečenica koja je ili istinita ili lažna. Svakom sudu $A$ pridružujemo vrijednosti $\top$ ili $\bot$ (redom istina i lažna).
@@ -232,9 +231,224 @@ $$A\lor\neg A\equiv\top,\quad A\land\neg A\equiv\bot$$
 $$\neg\neg A\equiv A$$
 \end{itemize}
 
-FALI DOKAZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+Svako pravilo može se dokazati preko tablica istinitosti.
 
 \item Iskazati i dokazati pravilo obrata po kontrapoziciji.
+
+Vrijedi pravilo obrata po kontrapoziciji odnosno $A\Rightarrow B\equiv \neg B\Rightarrow\neg A$.
+
+Dokažimo tvrdnju koristeći pravilo $A\Rightarrow B\equiv\neg A\lor B$. Sada iz $\neg B\Rightarrow\neg A$ imamo $$\neg B\Rightarrow\neg A\equiv\neg\neg B\lor\neg A\equiv B\lor\neg A\equiv\neg A\lor B\equiv A\Rightarrow B$$
+Odnosno početna tvrdnja je istinita.
+
+
+\item Definirati pojmove: tauotologija, kontradikcija.
+
+Tautologija ... za neku formulu $P$ kažemo da je tautologija ako je uvijek istinita, u tom slučaju pišemo $\vDash P$.
+
+Kontradikcija ... za neku formulu $Q$ kažemo da je kontradikcija ako nikad nije istinita, u tom slučaju pišemo $Q\equiv\bot$.
+
+\item Zapisati formulama pa dokazati (algebarski i tablicom) sljedeća pravila zaključivanja: zakon isključenja trećega, pravilo silogizma, zakon neproturječnosti, zakon dvostruke negacije, pravilo kontrapozicije, zakoni apsorpcije.
+
+U matematičkoj logici vrijede sljedeća pravila zaključivanja:
+\begin{itemize}
+\item zakon isključenja trećeg
+$$\vDash A\lor\neg A$$
+\item tranzitivnost implikacije, odnosno pravilo silogizma
+$$\vDash ( A\Rightarrow B)\land(B\Rightarrow C)\Rightarrow(A\Rightarrow C)$$
+\item zakon neproturječnosti
+$$\vDash \neg( A\land\neg A)$$
+\item zakon dvostruke negacije
+$$\vDash \neg\neg A\Leftrightarrow A$$
+\item pravilo kontrapozicije
+$$\vDash(A\Rightarrow B)\Leftrightarrow(\neg B\Rightarrow\neg A)$$
+\item zakoni apsorpcije
+$$\vDash A\lor(A\land B)\Leftrightarrow A$$
+$$\vDash A\land(A\lor B)\Leftrightarrow A$$
+\end{itemize}
+
+Pripadajući dokazi.
+
+\begin{itemize}
+\item zakon isključenja trećeg
+
+\begin{displaymath}
+\begin{array}{|c|c|c|}
+A & \neg A & A\lor\neg A\\
+\hline
+\top & \bot & \top\\
+\bot & \top & \top\\
+\end{array}
+\end{displaymath}
+
+\item tranzitivnost implikacije, odnosno pravilo silogizma
+
+\begin{align*}
+&\quad(A\Rightarrow B)\land (B\Rightarrow C) \Rightarrow (A\Rightarrow C)\equiv \neg[(\neg A\lor B)\land (\neg B\lor C)]\lor(\neg A\lor C)\equiv\\
+&\equiv\neg(\neg A\lor B)\lor\neg(\neg B\lor C)\lor(\neg A\lor C)\equiv(A\land\neg B)\lor (B\land\neg C)\lor\neg A\lor C\equiv\\
+&\equiv[(A\lor\neg A)\land(\neg B\lor\neg A)]\lor [(B\lor C)\land(\neg C\lor C)]\equiv [\top\land(\neg B\lor\neg A)]\lor [(B\lor C)\land\top]\equiv\\
+&\equiv \neg B\lor\neg A\lor B\lor C\equiv \neg B\lor B\lor\neg A\lor C\equiv \top\lor\neg A\lor C\equiv\top\\
+\end{align*}
+
+\item zakon neproturječnosti
+
+Pirmjenom DeMorganovih formula vidimo da su zakon neproturječnosti i zakon isključenja trećeg isti.
+$$\neg(\neg A\land A)\equiv \neg\neg A\lor \neg A\equiv A\lor\neg A$$
+
+\item zakon dvostruke negacije
+
+\begin{displaymath}
+\begin{array}{|c|c|c|}
+A & \neg\neg A & \neg\neg A\Leftrightarrow A\\
+\hline
+\top & \top & \top\\
+\bot & \bot & \top\\
+\end{array}
+\end{displaymath}
+
+ili
+
+\begin{align*}
+&\quad\neg\neg A\Leftrightarrow A\equiv A\Leftrightarrow A\equiv (A\Rightarrow A)\land(A\Rightarrow A)\equiv\\
+&(\neg A\lor A)\land(\neg A\lor A)\equiv \top\land\top\equiv\top\\
+\end{align*}
+
+\item pravilo kontrapozicije
+
+\begin{align*}
+&(A\Rightarrow B)\Leftrightarrow(\neg B\Rightarrow\neg A)\equiv [\neg(A\Rightarrow B)\lor(\neg B\Rightarrow\neg A)]\land[\neg(\neg B\Rightarrow\neg A)\lor(A\Rightarrow B)]\equiv\\
+&\equiv[\neg(\neg A\lor B)\lor B\lor\neg A]\land[\neg(B\lor\neg A)\lor\neg A\lor B]\equiv[(A\land\neg B)\lor B\lor\neg A]\land[(\neg B\land A)\lor\neg A\lor B]\equiv\\
+&\equiv(A\land\neg B)\lor B\lor\neg A\equiv[(A\lor B)\land(\neg B\lor B)]\lor\neg A\equiv[(A\lor B)\land\top]\lor\neg A\equiv A\lor B\lor\neg A\equiv\top\\
+\end{align*}
+
+\item zakoni apsorpcije
+
+Prvi zakon:
+\begin{align*}
+&\quad A\lor(A\land B)\Leftrightarrow A\equiv[A\lor(A\land B)\Rightarrow A]\land[A\Rightarrow A\lor(A\land B)]\equiv\\
+&\equiv[\neg(A\lor(A\land B))\lor A]\land[\neg A\lor A\lor (A\land B)]\equiv[(\neg A\land\neg(A\land B))\lor A]\land[\top\lor(A\land B)]\equiv\\
+&\equiv[(\neg A\land(\neg A\lor\neg B))\lor A]\land\top\equiv [(\neg A\land\neg A)\lor(\neg A\land\neg B)]\lor A\equiv\neg A\lor(\neg A\land\neg B)\lor A\equiv\top\\
+\end{align*}
+
+Drugi zakon:
+\begin{align*}
+&\quad A\land(A\lor B)\Leftrightarrow A\equiv[A\land(A\lor B)\Rightarrow A]\land[A\Rightarrow A\land(A\lor B)]\equiv\\
+&\equiv[\neg(A\land(A\lor B))\lor A]\land[\neg A\lor (A\land (A\lor B))]\equiv[\neg A\lor\neg(A\lor B)\lor A]\land[(\neg A\lor A)\land(\neg A\lor A\lor B)]\equiv\\
+&\equiv[\top\lor\neg(A\lor B)]\land[\top\land\top]\equiv\top\land\top\equiv\top\\
+\end{align*}
+
+\end{itemize}
+
+\item Definirati pojam algebre sudova.
+
+Algebra sudova je skup $S$ svih sudova zajedno s tri operacije na $S$: dvije binarne $\lor$, $\land$ i jednom unarnom $\neg$.
+
+\item Definirati pojmove logička posljedica sudova, premise, zaključak.
+
+Kažemo da je $A$ logička posljedica sudova $P_1, P_2, \ldots, P_n$ ako iz prepostavke da su sudovi $P_1, P_2, \ldots, P_n$ istiniti slijedi da je i sud $A$ istinit, pišemo
+$$P_1, P_2, \ldots, P_n\vDash A$$
+
+Sudovi $P_1, P_2, \ldots, P_n$ su premise, a sud $A$ je zaključak.
+
+\item Iskazati i dokazati teorem koji karakterizira pojam logičke posljedice sudova pomoću implikacije.
+
+Ako vrijedi $P_1, P_2, \ldots, P_n\vDash A$, onda je $\vDash P_1\land P_2\land\ldots\land P_n\Rightarrow A$ i obratno.
+
+Dokažimo tvrdnju prvo u jednom smjeru.
+
+Neka je $P_1, \ldots, P_n\vDash A$, tada treba dokazati $$\vDash P_1\land P_2\land\ldots\land P_n\Rightarrow A$$ 
+Pretpostavimo da ono što trebamo dokazati nije tautologija, odnosno da vrijedi
+$$P_1\equiv\ldots\equiv\ P_n\equiv\top,\quad A\equiv\bot$$
+Ali sada uviđamo da se to protivi početnoj tvrdnji koja kaže da istinitost sudova $P_1, \ldots, P_n$ povlači istinitost suda $A$, stoga je $\vDash P_1\land P_2\land\ldots\land P_n\Rightarrow A$ tautologija.
+
+Dokažimo sada tvrdnju u drugom smjeru.
+
+Neka je $\vDash P_1\land P_2\land\ldots\land P_n\Rightarrow A$, tada treba dokazati $$P_1, \ldots, P_n\vDash A$$
+Ako je $P_1\land P_2\land\ldots\land P_n\equiv\top$, odnosno $P_1\equiv\ldots\equiv\ P_n\equiv\top$, po pretpostavci mora vrijediti i $A\equiv\top$. Drugim riječima vrijedi $P_1, \ldots, P_n\vDash A$.
+
+\item Iskazati i dokazati pravila modus ponens i modus tollens.
+
+Za sudove $A$ i $B$ vrijedi $$A, A\Rightarrow B\vDash B$$ Takvo pravilo zaključivanja zove se modus ponens ili pravilo otkidanja.
+
+Dokaz:
+
+Ako za premise vrijedi $A\equiv\top$ i $A\Rightarrow B\equiv\top$, onda mora biti $B\equiv\top$.
+
+Za sudove $A$ i $B$ vrijedi $$\neg B, A\Rightarrow B\vDash\neg A$$ Takvo pravilo zaključivanja zove se modus tollens.
+
+Dokaz:
+
+Ako po pravilu kontrapozicije zamijenimo $A\Rightarrow B$ sa $\neg B\Rightarrow\neg A$ onda tvrdnja vrijedi po pravilu modus ponens za $\neg A$ i $\neg B$.
+
+\end{enumerate}
+
+\color{brightlavender}
+\section{Booleova algebra}
+\color{white}
+
+\begin{enumerate}
+\item Definirati pojam Booleove algebre (raspisati sva svojstva).
+
+Neka je $B$ skup u kojem su istaknuta dva različita elementa $0$ i $1$, te neka su zadane dvije binarne operacije, zbrajanje i množenje, i jedna unarna operacija $\overline{\phantom{m}}$ na $B$ . Skup $B$ zajedno s ove tri operacije zove se Booleva algebra ako su ispunjena sljedeća svojstva:
+
+\begin{enumerate}
+
+\item idempotentnost
+$$a + a = a,\quad a\cdot a = a$$
+
+\item asocijativnost
+$$(a + b) + c = a + (b + c)$$
+$$a\cdot(b\cdot c) = (a\cdot b)\cdot c$$
+
+\item komutativnost
+$$a + b = b + a,\quad a\cdot b = b\cdot a$$
+
+\item distributivnost 
+$$a\cdot(b + c) = a\cdot b + a\cdot c$$
+$$a + (b\cdot c) = (a + b)\cdot (a + c)$$
+
+\item DeMorganove formula 
+$$\overline{a+b} = \overline{a}\cdot\overline{b}$$
+$$\quad\overline{a\cdot b} = \overline{a}+\overline{b}$$
+
+\item $$a + 0 = a,\quad a\cdot1 = a$$
+
+\item $$a + 1 = 1, \quad a\cdot 0 = 0$$
+
+\item komplementiranost 
+$$a + \overline{a} = 1,\quad a\cdot\overline{a} = 0$$
+
+\item involutivnost komplementiranja
+$$\overline{\overline{a}} = a$$
+
+\end{enumerate}
+
+\item Dokazati da su u Booleovoj algebri nula i jedinica jedinstvene, te da vrijede pravila apsorpcije.
+
+Pretpostavimo da $0$ i $1$ nisu jedinstveni u booleovoj algebri, odnosno da postoje $0_1, 0_2, 1_1, 1_2$. Tada iz svojstva f) vidimo:
+$$0_1 + 0_2 = 0_1\quad 0_2 + 0_1 = 0_2$$
+$$1_1\cdot1_2 = 1_1\quad 1_2\cdot1_1 = 1_2$$
+Nadalje iz c) je očito:
+$$0_1 = 0_2\quad 1_1 = 1_2$$
+Drugim riječima nule i jedinice su jedinstvene u Booleovoj algebri.
+
+\item Definirati pojam izomorfizma Booleovih algebri.
+
+Neka su zadane dvije Booleove algebre $(B_1, +, \cdot, \overline{\phantom{m}})$ i $(B_2, +, \cdot, \overline{\phantom{m}})$. Za funkciju $f: B_1\rightarrow B_2$ kažemo da je izomorfizam Booleovih algebra $B_1$ i $B_2$ ako je bijekcija i za sve $a, b\in B_1$ vrijedi:
+$$f(a\cdot b) = f(a)\cdot f(b)$$
+$$f(\overline{a}) = f(a)$$
+
+\item Dokazati da izomorfizam Booleovih algebra čuva zbrajanje, nulu i jedinicu.
+
+Ako je $f: B_1\rightarrow B_2$ izomorfizam Booleovih algebra, onda vrijedi
+$$f(a+b) = f(a) + f(b),\quad f(0_1) = 0_2, \quad f(1_1) = 1_2$$
+
+Dokaz:
+
+Preko e) imamo $a + b = \overline{\overline{a + b}} = \overline{\overline{a}\cdot\overline{b}}$, nadalje preko uvjeta izomorfizma dobijemo
+$$f(a+b) = f(\overline{\overline{a}\cdot\overline{b}}) = \overline{f(\overline{a}\cdot\overline{b})} = \overline{f(\overline{a})\cdot f(\overline{b})} = \overline{f(\overline{a})} + \overline{f(\overline{b})} = f(\overline{\overline{a}}) + f(\overline{\overline{b}}) = f(a) + f(b)$$
+
+Također vrijedi $$f(0_1) = f(0_1\cdot\overline{0_1}) = f(0_1)\cdot f(\overline{0_1}) = f(0_1)\cdot \overline{f(0_1)} = 0_2$$
+$$f(1_1) = f(\overline{0_1}) = \overline{f(0_1) = \overline{0_2} = 1_2}$$
 
 \end{enumerate}
 
